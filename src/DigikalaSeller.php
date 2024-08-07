@@ -42,11 +42,11 @@ class DigikalaSeller
         return json_decode($request->getBody()->getContents(), true);
     }
 
-    public static function orders(): array
+    public static function orders($page = null): array
     {
         $self = new self();
         $response = $self->decode(
-            $self->client->request('GET', DigikalaRoutes::LIST_ORDERS->value)
+            $self->client->request('GET', DigikalaRoutes::LIST_ORDERS->value . empty($page) ? '?page=' . $page : '')
         );
         return $response['data'];
     }
@@ -64,7 +64,7 @@ class DigikalaSeller
     {
         $self = new self();
         $response = $self->decode(
-            $self->client->request('GET', DigikalaRoutes::LIST_VARIANTS->value . (!$page ?: '?page=' . $page))
+            $self->client->request('GET', DigikalaRoutes::LIST_VARIANTS->value . (empty($page) ? '?page=' . $page : ''))
         );
         return $response['data'];
     }
