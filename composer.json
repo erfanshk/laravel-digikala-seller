@@ -1,0 +1,27 @@
+{
+    "name": "erfanshk/laravel-digikala",
+    "description": "Laravel Digikala",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Erfanshk\\LaravelDigikala\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Erfan Shokouhi",
+            "email": "shokouhi.erfan75@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^11.20",
+        "guzzle/guzzle": "^3.9"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Erfanshk\\LaravelDigikala\\Providers\\LaravelDigikalaServiceProvider"
+            ]
+        }
+    }
+}
