@@ -74,7 +74,7 @@ class DigikalaSeller
         $self = new self();
         $response = $self->decode(
             $self->client->request('GET', DigikalaRoutes::LIST_VARIANTS->value .
-                '?search[is_active]=true' . (!$page ?: '?page=' . $page))
+                '?search[is_active]=true' . (empty($page) ? '&page=' . $page : ''))
         );
         return $response['data'];
     }
