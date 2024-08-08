@@ -46,7 +46,7 @@ class DigikalaSeller
     {
         $self = new self();
         $response = $self->decode(
-            $self->client->request('GET', DigikalaRoutes::LIST_ORDERS->value . !empty($page) ? '?page=' . $page : '')
+            $self->client->request('GET', DigikalaRoutes::LIST_ORDERS->value . (!empty($page) ? '?page=' . $page : ''))
         );
         return $response['data'];
     }
